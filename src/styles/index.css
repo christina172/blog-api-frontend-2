@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header,
+footer {
+    padding: 8px;
+    background-color: rebeccapurple;
+}
+
+header {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+h1 {
+    margin-right: auto;
+}
+
+h1 a {
+    color: white;
+    text-decoration: none;
+}
+
+.profile {
+    height: 2.5rem;
+    width: auto;
+}
+
+h3 {
+    color: white;
+}
+
+.log-out {
+    height: 1.8rem;
+    width: auto;
+}
+
+main {
+    flex: 1;
+    padding: 10px;
+    /* background-color: rgb(235, 213, 255); */
+}
+
+h2 {
+    text-align: center;
+}
+
+.posts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+footer p {
+    text-align: center;
+    color: white;
+}
+
+footer a {
+    color: white;
+}
