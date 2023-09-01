@@ -1,0 +1,56 @@
+.post-container {
+    background-color: lavender;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.post-date {
+    align-self: flex-end;
+    font-style: italic;
+}
+
+.edit-button {
+    align-self: center;
+    padding: 3px 15px;
+    text-decoration: none;
+    color: black;
+}
+
+h4 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.comment {
+    gap: 10px;
+    background-color: lavenderblush;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.delete-comment-button {
+    align-self: center;
+}
+
+h5 {
+    font-size: 1.15rem;
+}
+
+.comment-date {
+    font-style: italic;
+}
+
+@media (min-width: 350px) {
+    main {
+        padding: 20px;
+    }
+}

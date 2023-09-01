@@ -96,7 +96,9 @@ h4 {
     align-items: center;
 }
 
-.post-controls-preview button {
+.post-controls-preview button,
+.edit-button,
+.delete-comment-button {
     /* border: black solid 1px; */
     border: none;
     border-radius: 4px;
@@ -104,20 +106,24 @@ h4 {
     font-size: 1rem;
 }
 
-.published button {
+.published button,
+.delete-comment-button {
     background-color: rgb(252, 211, 225);
 }
 
-.published button:hover {
+.published button:hover,
+.delete-comment-button:hover {
     background-color: rgb(252, 196, 213);
     cursor: pointer;
 }
 
-.unpublished button {
+.unpublished button,
+.edit-button {
     background-color: rgb(204, 204, 253);
 }
 
-.unpublished button:hover {
+.unpublished button:hover,
+.edit-button:hover {
     background-color: rgb(192, 192, 252);
     cursor: pointer;
 }

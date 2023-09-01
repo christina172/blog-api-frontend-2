@@ -25,6 +25,9 @@ async function deletePost(post) {
             throw new Error(`${response.status} ${response.statusText}`);
         }
         let res = await response.json();
+        if (!res.success) {
+            throw new Error(`${response.status} ${response.statusText}`);
+        }
         location.reload();
     } catch (error) {
         localStorage.clear();
@@ -53,6 +56,9 @@ async function changeStatus(post) {
             throw new Error(`${response.status} ${response.statusText}`);
         }
         let res = await response.json();
+        if (!res.success) {
+            throw new Error(`${response.status} ${response.statusText}`);
+        }
         location.reload();
     } catch (error) {
         localStorage.clear();
@@ -77,12 +83,14 @@ async function getPosts() {
         if (response.status == 401) {
             localStorage.clear();
             throw new Error(`${response.status} ${response.statusText}`);
+        } else if (!response.ok) {
+            throw new Error(`${response.status} ${response.statusText}`);
         }
         let posts = await response.json();
         return posts;
     } catch (error) {
-        localStorage.clear();
         if (error.message == "401 Unauthorized") {
+            localStorage.clear();
             document.location.href = "login.html";
         } else {
             console.log(error);
