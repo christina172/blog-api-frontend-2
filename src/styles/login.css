@@ -1,0 +1,43 @@
+main,
+.button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+label {
+    font-size: 1.2rem;
+}
+
+input {
+    padding: 0 2px;
+    font-size: 1rem;
+}
+
+.form-error {
+    color: red;
+}
+
+button {
+    padding: 2px 16px;
+    font-size: 1rem;
+}
+
+button:hover {
+    cursor: pointer;
+}

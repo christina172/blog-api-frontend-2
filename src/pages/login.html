@@ -10,14 +10,23 @@
 <body>
     <header>
         <h1><a href="index.html">MY BLOG</a></h1>
-        <img src="../src/images/profile-circle-filled.svg" alt="profile" title="Profile" class="profile">
-        <h3>Username</h3>
-        <a href="#">
-            <img src="../src/images/log-out.svg" alt="log out" title="Log out" class="log-out">
-        </a>
     </header>
     <main>
         <h2>Log In</h2>
+        <form method="POST">
+            <div class="form-item">
+                <label for="username">Userame:</label>
+                <input type="text" id="username" name="username" required maxlength="100">
+            </div>
+            <div class="form-item">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required maxlength="100">
+            </div>
+            <div class="form-error"></div>
+            <div class="button-container">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
     </main>
     <footer>
         <p>Made by <a href="https://github.com/christina172?tab=repositories">christina172</a></p>

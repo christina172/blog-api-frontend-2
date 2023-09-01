@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 body {
@@ -57,9 +58,82 @@ h2 {
 .posts-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 20px;
     padding: 10px 0;
+    width: 85vw;
+    margin: auto;
+}
+
+.post-container-preview {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 5px;
+}
+
+.published {
+    background-color: lavenderblush;
+}
+
+.unpublished {
+    background-color: lavender;
+}
+
+.post-info-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    align-items: flex-start;
+}
+
+h4 {
+    font-size: 1.15rem;
+}
+
+.post-controls-preview {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.post-controls-preview button {
+    /* border: black solid 1px; */
+    border: none;
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 1rem;
+}
+
+.published button {
+    background-color: rgb(252, 211, 225);
+}
+
+.published button:hover {
+    background-color: rgb(252, 196, 213);
+    cursor: pointer;
+}
+
+.unpublished button {
+    background-color: rgb(204, 204, 253);
+}
+
+.unpublished button:hover {
+    background-color: rgb(192, 192, 252);
+    cursor: pointer;
+}
+
+.post-controls-preview .delete-button {
+    padding: 2px 6px;
+}
+
+.edit {
+    height: 1.5rem;
+    width: auto;
+}
+
+.delete {
+    height: 1.4rem;
+    width: auto;
 }
 
 footer p {
@@ -69,4 +143,32 @@ footer p {
 
 footer a {
     color: white;
+}
+
+@media (max-width: 700px) {
+    .posts-container {
+        width: 90vw;
+    }
+
+    .post-container-preview {
+        gap: 10px;
+        width: 100%;
+    }
+
+    .post-controls-preview {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 500px) {
+    .posts-container {
+        width: fit-content;
+        margin: auto;
+        padding: 10px 10px;
+    }
+
+    .post-container-preview {
+        flex-direction: column;
+        gap: 3px;
+    }
 }
