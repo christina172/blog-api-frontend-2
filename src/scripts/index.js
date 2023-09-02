@@ -106,6 +106,12 @@ const displayError = function (err) {
 
 function displayPosts(posts) {
     header.textContent = "Posts";
+    const addLink = document.createElement("a");
+    addLink.textContent = "Write a new post";
+    addLink.classList.add("add-button");
+    addLink.setAttribute("href", "form.html");
+
+    postsContainer.append(addLink);
 
     if (posts) {
         posts.forEach(post => {

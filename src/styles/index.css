@@ -98,7 +98,8 @@ h4 {
 
 .post-controls-preview button,
 .edit-button,
-.delete-comment-button {
+.delete-comment-button,
+.add-button {
     /* border: black solid 1px; */
     border: none;
     border-radius: 4px;
@@ -118,14 +119,24 @@ h4 {
 }
 
 .unpublished button,
-.edit-button {
+.edit-button,
+.add-button {
     background-color: rgb(204, 204, 253);
 }
 
 .unpublished button:hover,
-.edit-button:hover {
+.edit-button:hover,
+.add-button:hover {
     background-color: rgb(192, 192, 252);
     cursor: pointer;
+}
+
+.add-button {
+    align-self: center;
+    padding: 3px 15px;
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
 }
 
 .post-controls-preview .delete-button {
