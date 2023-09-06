@@ -109,9 +109,9 @@ function displayPosts(posts) {
             const postContainer = document.createElement("div");
             postContainer.classList.add("post-container-preview");
             if (post.published) {
-                postContainer.classList.add("unpublished");
+                postContainer.classList.add("unpublish");
             } else {
-                postContainer.classList.add("published");
+                postContainer.classList.add("publish");
             }
 
             const postInfo = document.createElement("div");

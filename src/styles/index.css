@@ -13,6 +13,7 @@ body {
 header,
 footer {
     padding: 8px;
+    background-color: rgb(76, 76, 167);
     background-color: rebeccapurple;
 }
 
@@ -48,7 +49,10 @@ h3 {
 main {
     flex: 1;
     padding: 10px;
-    /* background-color: rgb(235, 213, 255); */
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 h2 {
@@ -59,9 +63,7 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 10px 0;
-    width: 85vw;
-    margin: auto;
+    padding: 10px 50px;
 }
 
 .post-container-preview {
@@ -71,11 +73,11 @@ h2 {
     padding: 5px;
 }
 
-.published {
+.publish {
     background-color: lavenderblush;
 }
 
-.unpublished {
+.unpublish {
     background-color: lavender;
 }
 
@@ -100,35 +102,32 @@ h4 {
 .edit-button,
 .delete-comment-button,
 .add-button {
-    /* border: black solid 1px; */
     border: none;
     border-radius: 4px;
     padding: 4px 10px;
     font-size: 1rem;
 }
 
-.published button,
-.delete-comment-button {
+.publish button,
+.edit-button.unpublished {
     background-color: rgb(252, 211, 225);
 }
 
-.published button:hover,
-.delete-comment-button:hover {
+.publish button:hover,
+.edit-button.unpublished:hover {
     background-color: rgb(252, 196, 213);
-    cursor: pointer;
 }
 
-.unpublished button,
-.edit-button,
+.unpublish button,
+.edit-button.published,
 .add-button {
     background-color: rgb(204, 204, 253);
 }
 
-.unpublished button:hover,
-.edit-button:hover,
+.unpublish button:hover,
+.edit-button.published:hover,
 .add-button:hover {
     background-color: rgb(192, 192, 252);
-    cursor: pointer;
 }
 
 .add-button {
@@ -162,14 +161,13 @@ footer a {
     color: white;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 750px) {
     .posts-container {
-        width: 90vw;
+        padding: 10px 15px;
     }
 
     .post-container-preview {
         gap: 10px;
-        width: 100%;
     }
 
     .post-controls-preview {
@@ -179,9 +177,7 @@ footer a {
 
 @media (max-width: 500px) {
     .posts-container {
-        width: fit-content;
-        margin: auto;
-        padding: 10px 10px;
+        padding: 10px 5px;
     }
 
     .post-container-preview {

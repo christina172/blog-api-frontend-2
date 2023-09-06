@@ -79,13 +79,24 @@ function displayPost(response) {
     postTitle.textContent = post.title;
 
     const postDate = document.querySelector(".post-date");
-    postDate.textContent = `Published on ${format(new Date(post.timestamp), "PPPp")}`;
+    postDate.textContent = format(new Date(post.timestamp), "PPPp");
+
+    const postStatus = document.querySelector(".post-status");
+    postStatus.textContent = post.published ? "Published" : "Unpublished";
 
     const postText = document.querySelector(".post-text");
     postText.textContent = post.text;
 
     const editButton = document.querySelector(".edit-button");
     editButton.setAttribute("href", `form.html?id=${post._id}`);
+
+    if (post.published) {
+        postContainer.classList.add("unpublish");
+        editButton.classList.add("published");
+    } else {
+        postContainer.classList.add("publish");
+        editButton.classList.add("unpublished");
+    };
 
     commentsHeader.textContent = "Comments";
 

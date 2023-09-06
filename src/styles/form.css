@@ -1,11 +1,8 @@
-h2 {
-    margin-bottom: 10px;
-}
-
 form {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding: 10px 25px;
 }
 
 .form-item {
@@ -50,8 +47,8 @@ button {
     font-size: 1rem;
 }
 
-@media (min-width: 700px) {
-    main {
-        padding: 10px 25px;
+@media (max-width: 500px) {
+    form {
+        padding: 10px;
     }
 }

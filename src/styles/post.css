@@ -1,5 +1,5 @@
 .post-container {
-    background-color: lavender;
+    /* background-color: lavender; */
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -7,7 +7,8 @@
     margin-bottom: 10px;
 }
 
-.post-date {
+.post-date,
+.post-status {
     align-self: flex-end;
     font-style: italic;
 }
@@ -26,7 +27,7 @@ h4 {
 
 .comment {
     gap: 10px;
-    background-color: lavenderblush;
+    background-color: honeydew;
     margin-bottom: 15px;
     padding: 10px;
 }
@@ -38,7 +39,12 @@ h4 {
 }
 
 .delete-comment-button {
+    background-color: rgb(199, 255, 199);
     align-self: center;
+}
+
+.delete-comment-button:hover {
+    background-color: rgb(176, 255, 176);
 }
 
 h5 {
