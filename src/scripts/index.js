@@ -92,7 +92,6 @@ async function getPosts() {
 };
 
 const displayError = function (err) {
-    header.textContent = "Posts";
     postsContainer.textContent = "Something went wrong.";
 };
 

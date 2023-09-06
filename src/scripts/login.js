@@ -2,6 +2,7 @@ import "../styles/index.css";
 import "../styles/login.css";
 
 localStorage.clear();
+const formError = document.querySelector(".form-error");
 
 const form = document.querySelector("form");
 form.addEventListener("submit", (e) => {
@@ -39,9 +40,12 @@ function login(e) {
                 localStorage.setItem("name", res.name);
                 document.location.href = "index.html";
             }).catch(err => {
-                const formError = document.querySelector(".form-error");
-                formError.textContent = err.message;
                 console.log(err);
+                if (err.message == "Incorrect username" || err.message == "Incorrect password") {
+                    formError.textContent = err.message;
+                } else {
+                    formError.textContent = "Something went wrong.";
+                };
                 return err;
             });
     };

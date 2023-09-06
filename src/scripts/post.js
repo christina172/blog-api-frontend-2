@@ -8,6 +8,8 @@ import deleteIcon from "../images/delete.svg";
 const nameHeader = document.querySelector("h3");
 nameHeader.textContent = localStorage.getItem("name") || "Username";
 
+const commentsHeader = document.querySelector("h4");
+
 const url = new URL(location.href);
 const postId = url.searchParams.get("id");
 
@@ -84,6 +86,8 @@ function displayPost(response) {
 
     const editButton = document.querySelector(".edit-button");
     editButton.setAttribute("href", `form.html?id=${post._id}`);
+
+    commentsHeader.textContent = "Comments";
 
     const comments = document.querySelector(".comments");
 
