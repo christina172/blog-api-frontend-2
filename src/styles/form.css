@@ -1,0 +1,57 @@
+h2 {
+    margin-bottom: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-item {
+    display: flex;
+    gap: 10px;
+}
+
+label {
+    font-size: 1.2rem;
+}
+
+input[type="text"],
+textarea {
+    padding: 0 2px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+textarea {
+    padding: 1px 3px;
+    min-height: 1.2rem;
+    max-height: 50vh;
+    min-width: 14rem;
+}
+
+input[type="checkbox"] {
+    width: 1.1rem;
+}
+
+.form-error {
+    color: red;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+button {
+    padding: 2px 24px;
+    font-size: 1rem;
+}
+
+@media (min-width: 700px) {
+    main {
+        padding: 10px 25px;
+    }
+}

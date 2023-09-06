@@ -21,7 +21,6 @@ async function deletePost(post) {
             }
         });
         if (response.status == 401) {
-            localStorage.clear();
             throw new Error(`${response.status} ${response.statusText}`);
         }
         let res = await response.json();
@@ -30,7 +29,6 @@ async function deletePost(post) {
         }
         location.reload();
     } catch (error) {
-        localStorage.clear();
         if (error.message == "401 Unauthorized") {
             document.location.href = "login.html";
         } else {
@@ -52,7 +50,6 @@ async function changeStatus(post) {
             body: JSON.stringify({ "published": !post.published })
         });
         if (response.status == 401) {
-            localStorage.clear();
             throw new Error(`${response.status} ${response.statusText}`);
         }
         let res = await response.json();
@@ -61,7 +58,6 @@ async function changeStatus(post) {
         }
         location.reload();
     } catch (error) {
-        localStorage.clear();
         if (error.message == "401 Unauthorized") {
             document.location.href = "login.html";
         } else {
@@ -80,17 +76,13 @@ async function getPosts() {
                 'Authorization': localStorage.getItem("token")
             }
         });
-        if (response.status == 401) {
-            localStorage.clear();
-            throw new Error(`${response.status} ${response.statusText}`);
-        } else if (!response.ok) {
+        if (!response.ok) {
             throw new Error(`${response.status} ${response.statusText}`);
         }
         let posts = await response.json();
         return posts;
     } catch (error) {
         if (error.message == "401 Unauthorized") {
-            localStorage.clear();
             document.location.href = "login.html";
         } else {
             console.log(error);

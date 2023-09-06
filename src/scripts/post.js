@@ -24,7 +24,6 @@ async function deleteComment(comment) {
             }
         });
         if (response.status == 401) {
-            localStorage.clear();
             throw new Error(`${response.status} ${response.statusText}`);
         }
         let res = await response.json();
@@ -33,7 +32,6 @@ async function deleteComment(comment) {
         }
         location.reload();
     } catch (error) {
-        localStorage.clear();
         if (error.message == "401 Unauthorized") {
             document.location.href = "login.html";
         } else {
@@ -53,14 +51,12 @@ async function getPost(id) {
             }
         });
         if (response.status == 401) {
-            localStorage.clear();
             throw new Error(`${response.status} ${response.statusText}`);
         }
         let { post, allCommentsToAPost } = await response.json();
         return { post, allCommentsToAPost };
     } catch (error) {
         if (error.message == "401 Unauthorized") {
-            localStorage.clear();
             document.location.href = "login.html";
         } else {
             console.log(error);
