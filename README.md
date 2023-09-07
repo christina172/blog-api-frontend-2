@@ -7,4 +7,6 @@ There is only one user (me). The authentication and authorization are handled wi
 
 The project uses plain HTML and CSS with no front-end frameworks and is compiled with webpack.
 
+Blog API project (back end) repo on github: https://github.com/christina172/blog-api.
+
 Live preview link https://christina172.github.io/blog-api-frontend-2/
