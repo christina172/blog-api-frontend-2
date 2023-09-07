@@ -17,7 +17,7 @@ const postContainer = document.querySelector(".post-container");
 
 async function deleteComment(comment) {
     try {
-        let response = await fetch(`http://localhost:3000/myblog/posts/${comment.post}/comments/${comment._id}`, {
+        let response = await fetch(`https://blog-api-3e85.onrender.com/myblog/posts/${comment.post}/comments/${comment._id}`, {
             method: "DELETE",
             headers: {
                 'Accept': 'application/json, text/plain, */*',
@@ -26,7 +26,7 @@ async function deleteComment(comment) {
             }
         });
         if (response.status == 401) {
-            throw new Error(`${response.status} ${response.statusText}`);
+            throw new Error("401 Unauthorized");
         }
         let res = await response.json();
         if (!res.success) {
@@ -45,7 +45,7 @@ async function deleteComment(comment) {
 
 async function getPost(id) {
     try {
-        let response = await fetch(`http://localhost:3000/myblog/posts/${id}`, {
+        let response = await fetch(`https://blog-api-3e85.onrender.com/myblog/posts/${id}`, {
             headers: {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ async function getPost(id) {
             }
         });
         if (response.status == 401) {
-            throw new Error(`${response.status} ${response.statusText}`);
+            throw new Error("401 Unauthorized");
         }
         let { post, allCommentsToAPost } = await response.json();
         return { post, allCommentsToAPost };
@@ -61,7 +61,6 @@ async function getPost(id) {
         if (error.message == "401 Unauthorized") {
             document.location.href = "login.html";
         } else {
-            console.log(error);
             throw new Error(error);
         }
     }

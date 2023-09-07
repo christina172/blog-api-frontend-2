@@ -1,6 +1,8 @@
 import "../styles/index.css";
 import "../styles/form.css";
 
+const pageTitle = document.querySelector("title");
+
 const nameHeader = document.querySelector("h3");
 nameHeader.textContent = localStorage.getItem("name") || "Username";
 
@@ -28,7 +30,7 @@ async function editPost(e, post) {
     form.reportValidity();
     if (checkVal) {
         try {
-            let response = await fetch(`http://localhost:3000/myblog/posts/${post._id}`, {
+            let response = await fetch(`https://blog-api-3e85.onrender.com/myblog/posts/${post._id}`, {
                 method: "PATCH",
                 headers: {
                     'Accept': 'application/json, text/plain, */*',
@@ -38,7 +40,7 @@ async function editPost(e, post) {
                 body: JSON.stringify({ "title": titleValue, "text": textValue, "published": publishedValue })
             });
             if (response.status == 401) {
-                throw new Error(`${response.status} ${response.statusText}`);
+                throw new Error("401 Unauthorized");
             };
             let res = await response.json();
             if (!res.success) {
@@ -64,7 +66,7 @@ async function addPost(e) {
     form.reportValidity();
     if (checkVal) {
         try {
-            let response = await fetch("http://localhost:3000/myblog/posts", {
+            let response = await fetch("https://blog-api-3e85.onrender.com/myblog/posts", {
                 method: "POST",
                 headers: {
                     'Accept': 'application/json, text/plain, */*',
@@ -73,7 +75,9 @@ async function addPost(e) {
                 },
                 body: JSON.stringify({ "title": titleValue, "text": textValue, "published": publishedValue })
             });
-            if (response.status != 201) {
+            if (response.status == 401) {
+                throw new Error("401 Unauthorized");
+            } else if (response.status != 201) {
                 throw new Error(`${response.status} ${response.statusText}`);
             }
             let newPost = await response.json();
@@ -90,7 +94,7 @@ async function addPost(e) {
 
 async function getPost(id) {
     try {
-        let response = await fetch(`http://localhost:3000/myblog/posts/${id}`, {
+        let response = await fetch(`https://blog-api-3e85.onrender.com/myblog/posts/${id}`, {
             headers: {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json',
@@ -98,8 +102,7 @@ async function getPost(id) {
             }
         });
         if (response.status == 401) {
-            localStorage.clear();
-            throw new Error(`${response.status} ${response.statusText}`);
+            throw new Error("401 Unauthorized");
         }
         let { post } = await response.json();
         return post;
@@ -107,7 +110,6 @@ async function getPost(id) {
         if (error.message == "401 Unauthorized") {
             document.location.href = "login.html";
         } else {
-            console.log(error);
             throw new Error(error);
         }
     }
@@ -128,9 +130,11 @@ const displayError = function (err) {
 };
 
 if (postId) {
+    pageTitle.textContent = "My blog | Edit post";
     formHeader.textContent = "Edit post";
     getPost(postId).then(displayPostValues).catch(displayError);
 } else {
+    pageTitle.textContent = "My blog | Add a post";
     formHeader.textContent = "Add a post";
     form.addEventListener("submit", (e) => {
         addPost(e);

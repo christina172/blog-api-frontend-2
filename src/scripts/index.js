@@ -12,7 +12,7 @@ nameHeader.textContent = localStorage.getItem("name") || "Username";
 
 async function deletePost(post) {
     try {
-        let response = await fetch(`http://localhost:3000/myblog/posts/${post._id}`, {
+        let response = await fetch(`https://blog-api-3e85.onrender.com/myblog/posts/${post._id}`, {
             method: "DELETE",
             headers: {
                 'Accept': 'application/json, text/plain, */*',
@@ -21,7 +21,7 @@ async function deletePost(post) {
             }
         });
         if (response.status == 401) {
-            throw new Error(`${response.status} ${response.statusText}`);
+            throw new Error("401 Unauthorized");
         }
         let res = await response.json();
         if (!res.success) {
@@ -40,7 +40,7 @@ async function deletePost(post) {
 
 async function changeStatus(post) {
     try {
-        let response = await fetch(`http://localhost:3000/myblog/posts/${post._id}`, {
+        let response = await fetch(`https://blog-api-3e85.onrender.com/myblog/posts/${post._id}`, {
             method: "PATCH",
             headers: {
                 'Accept': 'application/json, text/plain, */*',
@@ -50,7 +50,7 @@ async function changeStatus(post) {
             body: JSON.stringify({ "published": !post.published })
         });
         if (response.status == 401) {
-            throw new Error(`${response.status} ${response.statusText}`);
+            throw new Error("401 Unauthorized");
         }
         let res = await response.json();
         if (!res.success) {
@@ -69,13 +69,16 @@ async function changeStatus(post) {
 
 async function getPosts() {
     try {
-        let response = await fetch("http://localhost:3000/myblog/posts", {
+        let response = await fetch("https://blog-api-3e85.onrender.com/myblog/posts", {
             headers: {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json',
                 'Authorization': localStorage.getItem("token")
             }
         });
+        if (response.status == 401) {
+            throw new Error("401 Unauthorized");
+        }
         if (!response.ok) {
             throw new Error(`${response.status} ${response.statusText}`);
         }

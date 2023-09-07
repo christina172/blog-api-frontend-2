@@ -25,7 +25,7 @@ textarea {
     padding: 1px 3px;
     min-height: 1.2rem;
     max-height: 50vh;
-    min-width: 14rem;
+    resize: vertical;
 }
 
 input[type="checkbox"] {

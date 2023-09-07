@@ -16,7 +16,7 @@ function login(e) {
     const checkVal = form.checkValidity();
     form.reportValidity();
     if (checkVal) {
-        fetch(`http://localhost:3000/myblog/log-in`, {
+        fetch(`https://blog-api-3e85.onrender.com/myblog/log-in`, {
             method: "POST",
             headers: {
                 'Accept': 'application/json, text/plain, */*',
